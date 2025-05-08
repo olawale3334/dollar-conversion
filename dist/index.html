@@ -7,23 +7,23 @@
     <title>Document</title>
 </head>
 <body>
-    <div class=" max-w-md mx-auto bg-slate-500">
-      <h1 class="font-extrabold text-center text-3xl">OLAdeChange</h1>
+    <div class=" max-w-md mx-auto bg-slate-500 mt-5 py-10" >
+      <h1 class="font-extrabold text-center text-3xl text-white">OLA deChange</h1>
 
-    <div class="text-center">
+    <div class="text-center mt-6">
         <form >
-            <input class="p-2" type="number" id="amount">
-           <button id="check" class="p-4 bg-black text-white">check rate</button>
+            <input class="p-4" type="number" id="amount">
+           <button id="check" class="py-3 border-none px-8 text-xl bg-black text-white">check rate</button>
         </form>
     </div>
-    <div>
-        <select id="currency"></select>
+    <div class="text-center mt-6 mb-6">
+        <select id="currency" class="p-4 "></select>
     </div>
    
 
     <div id="result">
-        <div id="dollar"></div>
-        <div id="naira"></div>
+        <div  id="dollar" class="text-white font-bold text-xl text-center"></div>
+        <div id="naira" class="text-white font-bold text-xl text-center"></div>
     </div>
  </div>
  <script>
@@ -33,14 +33,15 @@
             e.preventDefault();
 
             let amount = document.getElementById("amount").value;
-            let selectedCurrency = document.getElementById("currency").value;
+            let selectedC = document.getElementById("currency").value;
 
             fetch("https://open.er-api.com/v6/latest/USD").then((response) => response.json()).then((data) => {
 
-                let rates =data.rates[selectedCurrency]
+                let rates =data.rates[selectedC]
                 let convert = (amount*rates)
+
                 document.getElementById("dollar").innerText = `USD : ${amount}`
-                document.getElementById("naira").innerText = `${selectedCurrency} ${convert}`
+                document.getElementById("naira").innerText = `${selectedC} ${convert}`
                 
                 
             });
