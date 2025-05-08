@@ -7,18 +7,24 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>KCdeChange</h1>
+    <div class=" max-w-md mx-auto bg-slate-500">
+      <h1 class="font-extrabold text-center text-3xl">OLAdeChange</h1>
 
-    <form>
-        <input type="number" id="amount">
+    <div class="text-center">
+        <form >
+            <input class="p-2" type="number" id="amount">
+           <button id="check" class="p-4 bg-black text-white">check rate</button>
+        </form>
+    </div>
+    <div>
         <select id="currency"></select>
-        <input type="button" value="Check Rate" id="check">
-       
-    </form>
+    </div>
+   
+
     <div id="result">
         <div id="dollar"></div>
         <div id="naira"></div>
     </div>
-
+ </div>
 </body>
 </html>
