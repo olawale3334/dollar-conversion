@@ -45,6 +45,18 @@
                 
             });
         })
+        fetch("https://open.er-api.com/v6/latest/USD").then((response) => response.json()).then((data) => {
+              let currencies =Object.keys(data.rates)
+
+
+                   currencies.forEach((currency) => {
+                    let option = document.createElement("option")
+                     option.value = currency
+                     option.innerText= currency
+                     document.querySelector("#currency").appendChild(option)
+                   });
+                    
+                });
      
  </script>
 </body>
