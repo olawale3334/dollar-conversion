@@ -27,7 +27,25 @@
     </div>
  </div>
  <script>
-    
+     let btn = document.querySelector("#check");
+
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            let amount = document.getElementById("amount").value;
+            let selectedCurrency = document.getElementById("currency").value;
+
+            fetch("https://open.er-api.com/v6/latest/USD").then((response) => response.json()).then((data) => {
+
+                let rates =data.rates[selectedCurrency]
+                let convert = (amount*rates)
+                document.getElementById("dollar").innerText = `USD : ${amount}`
+                document.getElementById("naira").innerText = `${selectedCurrency} ${convert}`
+                
+                
+            });
+        })
+     
  </script>
 </body>
 </html>
